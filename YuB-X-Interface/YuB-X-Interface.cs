@@ -50,7 +50,7 @@ namespace YuB_X_Interface
                 MessageBox.Show("Press OK to download the injector, this might take a few seconds", "YuB-X-Interface", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 using (var WebClient = new System.Net.WebClient())
                 {
-                    WebClient.DownloadFile("https://github.com/vuxqzofx/YuB-X-Injector/raw/refs/heads/main/YuB-X-Injector-V5.exe", InjectorPath);
+                    WebClient.DownloadFile("YOUR DOWNLOAD LINK HERE", InjectorPath);
                 }
             }
 
