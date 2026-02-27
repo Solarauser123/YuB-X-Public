@@ -242,7 +242,7 @@ typedef struct TString
     CommonHeader;
     int16_t flag; // 0x4
     int16_t atom; // 0x6
-    TString* next; // 0x6
+    TString* next; // 0x8
     TSTRING_HASH_ENC<unsigned int> hash; // 0x10
     unsigned int len; // 0x14
     char data[1]; // 0x18
