@@ -478,7 +478,7 @@ struct lua_Callbacks
     void (*debuginterrupt)(lua_State* L, lua_Debug* ar); // 0x8
     void (*userthread)(lua_State* LP, lua_State* L); // 0x10
     void (*panic)(lua_State* L, int errcode);
-    int16_t(*useratom)(lua_State* L, const char* s, size_t l); // 0x20
+    int16_t(*useratom)(const char* s, size_t l); // 0x20
     void (*debugbreak)(lua_State* L, lua_Debug* ar);
     void (*interrupt)(lua_State* L, int gc); // 0x30
     void (*debugprotectederror)(lua_State* L); // 0x38
