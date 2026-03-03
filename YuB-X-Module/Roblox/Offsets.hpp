@@ -11,33 +11,33 @@ struct DebuggerResult;
 
 namespace Offsets
 {
-    const uintptr_t Print = REBASE(0x1B3D810);
-    const uintptr_t TaskDefer = REBASE(0x1B23EB0);
-    const uintptr_t OpcodeLookupTable = REBASE(0x5E75110);
-    const uintptr_t ScriptContextResume = REBASE(0x1A70CA0);
-    const uintptr_t GetLuaStateForInstance = REBASE(0x19889C0);
+    const uintptr_t Print = REBASE(0x1B797B0);
+    const uintptr_t TaskDefer = REBASE(0x1B5FEC0);
+    const uintptr_t OpcodeLookupTable = REBASE(0x5F3D670);
+    const uintptr_t ScriptContextResume = REBASE(0x1AADA00);
+    const uintptr_t GetLuaStateForInstance = REBASE(0x19C49F0);
 
     namespace Luau
     {
-        const uintptr_t Luau_Execute = REBASE(0x3A81C80);
-        const uintptr_t LuaO_NilObject = REBASE(0x5982B08);
-        const uintptr_t LuaH_DummyNode = REBASE(0x59821D8);
+        const uintptr_t Luau_Execute = REBASE(0x3B54860);
+        const uintptr_t LuaO_NilObject = REBASE(0x5A3F248);
+        const uintptr_t LuaH_DummyNode = REBASE(0x5A3EC38);
     }
 
     namespace DataModel
     {
         const uintptr_t Children = 0x70;
-        const uintptr_t GameLoaded = 0x5F8;
+        const uintptr_t GameLoaded = 0x600;
         const uintptr_t ScriptContext = 0x3F0;
         const uintptr_t FakeDataModelToDataModel = 0x1C0;
 
-        const uintptr_t FakeDataModelPointer = REBASE(0x7E83168);
+        const uintptr_t FakeDataModelPointer = REBASE(0x7F63188);
     }
 
     namespace ExtraSpace
     {
-        const uintptr_t RequireBypass = 0x8E4;
-        const uintptr_t ScriptContextToResume = 0x838;
+        const uintptr_t RequireBypass = 0x948;
+        const uintptr_t ScriptContextToResume = 0x850;
     }
 }
 

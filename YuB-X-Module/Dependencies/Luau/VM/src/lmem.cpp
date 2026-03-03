@@ -208,26 +208,17 @@ const SizeClassConfig kSizeClassConfig;
 
 struct lua_Page
 {
-    // list of pages with free blocks
-    lua_Page* prev;
-    lua_Page* next;
-
-    // list of all pages
-    lua_Page* listprev;
-    lua_Page* listnext;
-
-    int pageSize;  // page size in bytes, including page header
-    int blockSize; // block size in bytes, including block header (for non-GCO)
-
-    void* freeList; // next free block in this page; linked with metadata()/freegcolink()
-    int freeNext;   // next free block offset in this page, in bytes; when negative, freeList is used instead
-    int busyBlocks; // number of blocks allocated out of this page
-
-    // provide additional padding based on current object size to provide 16 byte alignment of data
-    // later static_assert checks that this requirement is held
-    char padding[sizeof(void*) == 8 ? 8 : 12];
-
-    char data[1];
+    lua_Page* listprev; // 0x0
+    lua_Page* listnext; // 0x8
+    lua_Page* prev; // 0x10
+    lua_Page* next; // 0x18
+    int pageSize;  // 0x20
+    int blockSize; // 0x24
+    void* freeList; // 0x28
+    int freeNext; // 0x30
+    int busyBlocks; // 0x34
+    char padding[sizeof(void*) == 8 ? 8 : 12]; // 0x38
+    char data[1]; // 0x40
 };
 
 static_assert(offsetof(lua_Page, data) % 16 == 0, "data must be 16 byte aligned to provide properly aligned allocation of userdata objects");
