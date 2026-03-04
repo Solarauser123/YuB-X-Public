@@ -198,14 +198,14 @@ typedef struct global_State
     uint64_t ptrenckey[4]; // 0x4B8
     lua_Callbacks cb; // 0x4D8
     lua_ExecutionCallbacks ecb; // 0x528
-    alignas(16) uint8_t ecbdata[LUA_EXECUTION_CALLBACK_STORAGE]; // 0x560
-    size_t memcatbytes[LUA_MEMORY_CATEGORIES]; // 0x760
-    void (*udatagc[LUA_UTAG_LIMIT])(lua_State*, void*); // 0xF60
-    LuaTable* udatamt[LUA_UTAG_LIMIT]; // 0x1360
-    TString* lightuserdataname[LUA_LUTAG_LIMIT]; // 0x1760
-    GCStats gcstats; // 0x1B60
+    alignas(16) uint8_t ecbdata[LUA_EXECUTION_CALLBACK_STORAGE]; // 0x570
+    size_t memcatbytes[LUA_MEMORY_CATEGORIES]; // 0x770
+    void (*udatagc[LUA_UTAG_LIMIT])(lua_State*, void*); // 0xF70
+    LuaTable* udatamt[LUA_UTAG_LIMIT]; // 0x1370
+    TString* lightuserdataname[LUA_LUTAG_LIMIT]; // 0x1770
+    GCStats gcstats; // 0x1B70
 #ifdef LUAI_GCMETRICS
-    GCMetrics gcmetrics; // 0x1C18
+    GCMetrics gcmetrics; // 0x1C28
 #endif
 } global_State;
 // clang-format on
