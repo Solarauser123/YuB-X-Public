@@ -19,8 +19,8 @@
 typedef struct stringtable
 {
     TString** hash; // 0x0
-    uint32_t nuse; // 0x8
-    int size; // 0xC
+    int size; // 0x8
+    uint32_t nuse; // 0xC
 } stringtable;
 // clang-format on
 
@@ -55,10 +55,10 @@ typedef struct stringtable
 // clang-format off
 typedef struct CallInfo
 {
-    StkId base; // 0x0
-    StkId func; // 0x8
-    StkId top; // 0x10
-    const Instruction* savedpc; // 0x18
+    const Instruction* savedpc; // 0x0
+    StkId top; // 0x8
+    StkId func; // 0x10
+    StkId base; // 0x18
     int nresults; // 0x20
     unsigned int flags; // 0x24
 } CallInfo;
@@ -168,35 +168,35 @@ struct lua_ExecutionCallbacks
 typedef struct global_State
 {
     stringtable strt; // 0x0
-    lua_Alloc frealloc; // 0x10
-    void* ud; // 0x18
-    uint8_t currentwhite; // 0x20
-    uint8_t gcstate; // 0x21
-    GCObject* gray; // 0x28
-    GCObject* grayagain; // 0x30
-    GCObject* weak; // 0x38
-    size_t GCthreshold; // 0x40
-    size_t totalbytes; // 0x48
-    int gcgoal; // 0x50
-    int gcstepmul; // 0x54
-    int gcstepsize; // 0x58
+    GCObject* weak; // 0x10
+    GCObject* grayagain; // 0x18
+    GCObject* gray; // 0x20
+    int gcgoal; // 0x28
+    int gcstepmul; // 0x2C
+    int gcstepsize; // 0x30
+    lua_Alloc frealloc; // 0x38
+    void* ud; // 0x40
+    uint8_t currentwhite; // 0x48
+    uint8_t gcstate; // 0x49
+    size_t GCthreshold; // 0x50
+    size_t totalbytes; // 0x58
     struct lua_Page* freepages[LUA_SIZECLASSES]; // 0x60
-    struct lua_Page* freegcopages[LUA_SIZECLASSES]; // 0x1A0
-    struct lua_Page* allpages; // 0x2E0
-    struct lua_Page* allgcopages; // 0x2E8
-    struct lua_Page* sweepgcopage; // 0x2F0
-    struct lua_State* mainthread; // 0x2F8
-    UpVal uvhead; // 0x300
+    struct lua_Page* allpages; // 0x1A0
+    struct lua_State* mainthread; // 0x1A8
+    struct lua_Page* freegcopages[LUA_SIZECLASSES]; // 0x1B0
+    struct lua_Page* allgcopages; // 0x2F0
+    UpVal uvhead; // 0x2F8
+    struct lua_Page* sweepgcopage; // 0x320
     struct LuaTable* mt[LUA_T_COUNT]; // 0x328
     TString* ttname[LUA_T_COUNT]; // 0x380
     TString* tmname[TM_N]; // 0x3D8
     TValue pseudotemp; // 0x480
     TValue registry; // 0x490
     int registryfree; // 0x4A0
-    struct lua_jmpbuf* errorjmp; // 0x4A8
-    uint64_t rngstate; // 0x4B0
-    uint64_t ptrenckey[4]; // 0x4B8
-    lua_Callbacks cb; // 0x4D8
+    uint64_t ptrenckey[4]; // 0x4A8
+    lua_Callbacks cb; // 0x4C8
+    struct lua_jmpbuf* errorjmp; // 0x518
+    uint64_t rngstate; // 0x520
     lua_ExecutionCallbacks ecb; // 0x528
     alignas(16) uint8_t ecbdata[LUA_EXECUTION_CALLBACK_STORAGE]; // 0x570
     size_t memcatbytes[LUA_MEMORY_CATEGORIES]; // 0x770
@@ -221,24 +221,24 @@ struct lua_State
     uint8_t activememcat; // 0x4
     bool isactive; // 0x5
     bool singlestep; // 0x6
-    StkId top; // 0x8
-    StkId base; // 0x10
-    global_State* global; // 0x18
-    CallInfo* ci; // 0x20
-    StkId stack_last; // 0x28
-    StkId stack; // 0x30
-    CallInfo* end_ci; // 0x38
-    CallInfo* base_ci; // 0x40
-    LSTATE_STACKSIZE_ENC<int> stacksize; // 0x48
-    int size_ci; // 0x4C
-    unsigned short nCcalls; // 0x50
-    unsigned short baseCcalls; // 0x52
-    int cachedslot; // 0x54
-    LuaTable* gt; // 0x58
-    UpVal* openupval; // 0x60
-    GCObject* gclist; // 0x68
-    TString* namecall; // 0x70
-    RobloxExtraSpace* userdata; // 0x78
+    RobloxExtraSpace* userdata; // 0x8
+    GCObject* gclist; // 0x10
+    unsigned short nCcalls; // 0x18
+    unsigned short baseCcalls; // 0x1A
+    int cachedslot; // 0x1C
+    LuaTable* gt; // 0x20
+    StkId top; // 0x28
+    StkId base; // 0x30
+    StkId stack_last; // 0x38
+    CallInfo* ci; // 0x40
+    StkId stack; // 0x48
+    global_State* global; // 0x50
+    CallInfo* end_ci; // 0x58
+    CallInfo* base_ci; // 0x60
+    UpVal* openupval; // 0x68
+    LSTATE_STACKSIZE_ENC<int> stacksize; // 0x70
+    int size_ci; // 0x74
+    TString* namecall; // 0x78
 };
 // clang-format on
 

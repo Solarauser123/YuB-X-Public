@@ -212,7 +212,7 @@ struct lua_Page
     lua_Page* listnext; // 0x8
     lua_Page* prev; // 0x10
     lua_Page* next; // 0x18
-    int pageSize;  // 0x20
+    int pageSize; // 0x20
     int blockSize; // 0x24
     void* freeList; // 0x28
     int freeNext; // 0x30
